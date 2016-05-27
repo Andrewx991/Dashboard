@@ -4,5 +4,5 @@ Playing around with node...
 ## Set Up:
 
 1. Make an 'apikeys' folder
-..* Forecast.io - Filename: 'forecast'
-2. `node main.js`
+2. Add new file 'forecast', put api key from forecast.io in it
+3. `node main.js`
