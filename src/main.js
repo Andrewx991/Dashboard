@@ -19,6 +19,12 @@ var cities = [
   { name: 'Blue Bell, PA', coordinates: [40.144722, -75.268889] }
 ];
 var forecastApiKey = fileSystem.readFile(forecastApiKeyFullPath, {encoding: 'utf-8'}, function(err, data){
+  if (err) {
+    console.log('Error loading forecast API key: ' + err);
+    process.exit(1);
+    return;
+  }
+  
   var path = 'https://api.forecast.io/forecast/' + data.slice(0, data.length-1) + '/' + cities[0].coordinates[0] + ',' + cities[0].coordinates[1];
   request(path, function(err, response, body){
     if (err) console.log(err);
