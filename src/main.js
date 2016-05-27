@@ -9,7 +9,16 @@ app.get('/home.js', function(request, response){
   response.sendFile(__dirname + "/Pages/Home/home.js");
 });
 
-weather.weather.getWeather();
+var configuration = {
+  weather: {
+    cities: [
+      {name: 'Blue Bell, PA', latitude: 40.144722, longitude: -75.268889},
+      {name: 'Radnor, PA', latitude: 40.036389, longitude: -75.3725}
+    ]
+  }
+}
+
+weather.weather.getWeather(configuration.weather.cities[0].latitude, configuration.weather.cities[0].longitude);
 
 /*
 var port = process.env['PORT'] || 80;
