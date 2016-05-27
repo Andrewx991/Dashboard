@@ -14,7 +14,7 @@ app.get('/home.js', function(request, response){
 
 // Weather Forecast via Forecast.io
 var apiKeyDirectory = path.resolve(__dirname, '..', 'apikeys');
-var forecastApiKeyFullPath = apiKeyDirectory + '\\forecast';
+var forecastApiKeyFullPath = path.join(apiKeyDirectory, 'forecast');
 var cities = [
   { name: 'Blue Bell, PA', coordinates: [40.144722, -75.268889] }
 ];
