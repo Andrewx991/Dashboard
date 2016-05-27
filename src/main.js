@@ -1,5 +1,5 @@
 var express = require('express');
-var weather = require('./services/weather.js');
+var weather = require('./Services/weather.js');
 var app = express();
 
 app.get('/', function(request, response){
@@ -10,10 +10,12 @@ app.get('/home.js', function(request, response){
 });
 
 weather.weather.getWeather();
+
 /*
+var port = process.env['PORT'] || 80;
+
 var server = app.listen(80, function() {
   var host = server.address().address
-  var port = server.address().port
 
   console.log('Listening at http://%s:%s', host, port);
 });*/
