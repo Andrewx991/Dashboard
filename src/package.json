@@ -1,17 +1,26 @@
 {
-  "name": "neo",
+  "name": "dashboard",
   "version": "1.0.0",
-  "description": "My first node app",
-  "main": "index.js",
+  "description": "Playing around with nodejs...",
+  "main": "main.js",
+  "dependencies": {
+    "express": "^4.13.4",
+    "fs": "^0.0.2",
+    "request": "^2.72.0",
+    "forecast": "^0.2.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.13.4",
-    "forecast": "^0.2.1",
-    "fs": "0.0.2",
-    "request": "^2.72.0"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andrewx991/Dashboard.git"
+  },
+  "author": "Andrew Hagner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Andrewx991/Dashboard/issues"
+  },
+  "homepage": "https://github.com/Andrewx991/Dashboard#readme"
 }
