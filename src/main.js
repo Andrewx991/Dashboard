@@ -39,9 +39,10 @@ var forecastApiKey = fileSystem.readFile(forecastApiKeyFullPath, {encoding: 'utf
   });
 });
 
-var server = app.listen(80, function() {
-  var host = server.address().address
-  var port = server.address().port
+var port = process.env['PORT'] || 80;
+
+var server = app.listen(port, function() {
+  var host = server.address().address;
 
   console.log('Listening at http://%s:%s', host, port);
 });
