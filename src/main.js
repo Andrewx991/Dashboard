@@ -1,5 +1,5 @@
 var express = require('express');
-var weather = require('./services/weather.js');
+var weather = require('./Services/weather.js');
 var app = express();
 
 app.get('/', function(request, response){
