@@ -1,5 +1,6 @@
 var express = require('express');
 var weather = require('./Services/weather.js');
+var schedule = require('./Services/schedule.js');
 var app = express();
 
 app.get('/', function(request, response){
@@ -18,8 +19,8 @@ var configuration = {
   }
 }
 
-weather.weather.getWeather(configuration.weather.cities[0].latitude, configuration.weather.cities[0].longitude);
-
+//weather.weather.getWeather(configuration.weather.cities[0].latitude, configuration.weather.cities[0].longitude);
+schedule.schedule.get();
 /*
 var port = process.env['PORT'] || 80;
 
