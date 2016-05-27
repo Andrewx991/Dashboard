@@ -1,3 +1,6 @@
+# DONT COMMIT API KEYS
+apikeys
+
 # Logs
 logs
 *.log
