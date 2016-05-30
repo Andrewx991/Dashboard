@@ -28,7 +28,18 @@ weather.getWeatherForLocation(lat, long, function(weather) {
   console.log(weather.temperature);
   console.log(weather.windSpeedMph);
 });
-schedule.getNextTenEvents();
+schedule.getNextTenEvents(function(events){
+  if (events.length == 0) {
+    console.log('No upcoming events found.');
+  } else {
+    console.log('Upcoming 10 events:');
+    for (var i = 0; i < events.length; i++) {
+      var event = events[i];
+      var start = event.start.dateTime || event.start.date;
+      console.log('%s - %s', start, event.summary);
+    }
+  }
+});
 /*
 var port = process.env['PORT'] || 80;
 
