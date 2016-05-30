@@ -3,7 +3,7 @@ var path = require('path');
 var request = require('request');
 
 module.exports = {
-  getWeatherForLocation: function(latitude, longitude) {
+  getWeatherForLocation: function(latitude, longitude, callback) {
     var apiKeyDirectory = path.join(__dirname, '..', '..', 'apikeys');
     var forecastApiKeyFullPath = path.join(apiKeyDirectory, 'forecast');
 
@@ -23,11 +23,14 @@ module.exports = {
         }
 
         var currentWeather = JSON.parse(body);
-        console.log('Currently: ' + currentWeather.currently.summary);
-        console.log('Temperature: ' + currentWeather.currently.temperature);
-        console.log('Wind Speed: ' + currentWeather.currently.windSpeed + 'mph');
-        console.log('Next few hours: ' + currentWeather.hourly.summary);
-        console.log('Next few days: ' + currentWeather.daily.summary);
+
+        callback({
+          currentSummary: currentWeather.currently.summary,
+          nextDaySummary: currentWeather.hourly.summary,
+          nextWeekSummary: currentWeather.daily.summary,
+          temperature: currentWeather.currently.temperature,
+          windSpeedMph: currentWeather.currently.windSpeed
+        });
       });
     });
   }

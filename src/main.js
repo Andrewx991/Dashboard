@@ -19,7 +19,15 @@ var configuration = {
   }
 }
 
-weather.getWeatherForLocation(configuration.weather.cities[0].latitude, configuration.weather.cities[0].longitude);
+var lat = configuration.weather.cities[0].latitude;
+var long = configuration.weather.cities[0].longitude;
+weather.getWeatherForLocation(lat, long, function(weather) {
+  console.log(weather.currentSummary);
+  console.log(weather.nextDaySummary);
+  console.log(weather.nextWeekSummary);
+  console.log(weather.temperature);
+  console.log(weather.windSpeedMph);
+});
 schedule.getNextTenEvents();
 /*
 var port = process.env['PORT'] || 80;
