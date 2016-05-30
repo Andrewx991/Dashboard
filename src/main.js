@@ -19,8 +19,8 @@ var configuration = {
   }
 }
 
-//weather.weather.getWeather(configuration.weather.cities[0].latitude, configuration.weather.cities[0].longitude);
-schedule.schedule.get();
+weather.getWeatherForLocation(configuration.weather.cities[0].latitude, configuration.weather.cities[0].longitude);
+schedule.getNextTenEvents();
 /*
 var port = process.env['PORT'] || 80;
 

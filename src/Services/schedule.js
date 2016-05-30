@@ -9,20 +9,18 @@ var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH || process.env.USERPRO
 var TOKEN_PATH = TOKEN_DIR + 'calendar-nodejs-quickstart.json';
 
 module.exports = {
-  schedule: {
-    get() {
-      var apiKeyDirectory = path.join(__dirname, '..', '..', 'apikeys');
-      var googleApiKeyFullPath = path.join(apiKeyDirectory, 'google-calendar');
+  getNextTenEvents: function() {
+    var apiKeyDirectory = path.join(__dirname, '..', '..', 'apikeys');
+    var googleApiKeyFullPath = path.join(apiKeyDirectory, 'google-calendar');
 
-      fileSystem.readFile(googleApiKeyFullPath, {encoding: 'utf-8'}, function(err, data){
-        if (err) {
-          console.log('Error loading google calendar API key: ' + err);
-          return;
-        }
+    fileSystem.readFile(googleApiKeyFullPath, {encoding: 'utf-8'}, function(err, data){
+      if (err) {
+        console.log('Error loading google calendar API key: ' + err);
+        return;
+      }
 
-        authorize(JSON.parse(data), listEvents);
-      });
-    }
+      authorize(JSON.parse(data), listEvents);
+    });
   }
 }
 
