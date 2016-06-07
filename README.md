@@ -27,3 +27,12 @@ Instructions:
 3. You will need to follow the console instructions the first time you run the app.
 
 It will store credentials locally and you should be ok from then on.
+
+## MapQuest Access
+
+Apikeys file name: mapquest
+
+1. Make account at developer.mapquest.com
+2. Create or select your Application
+3. Paste the Consumer Key into file
+

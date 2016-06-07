@@ -1,6 +1,7 @@
 var express = require('express');
 var weather = require('./Services/weather.js');
 var schedule = require('./Services/schedule.js');
+var traffic = require('./Services/traffic.js');
 var app = express();
 
 app.get('/', function(request, response){
@@ -40,6 +41,15 @@ schedule.getNextTenEvents(function(events){
     }
   }
 });
+traffic.getTrafficData({ from: configuration.weather.cities[0].name, to: configuration.weather.cities[1].name }, function (err, data) {
+  if (err) {
+    console.log('Error loading traffic data: ' + err);
+    return;
+  }
+  
+  console.log('Time in seconds: ' + data.timeInSeconds);
+});
+
 /*
 var port = process.env['PORT'] || 80;
 
